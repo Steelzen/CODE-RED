@@ -1,0 +1,19 @@
+1. User should see the list of all documents in grid page.
+
+2. Each row should have one column called "Action".
+
+3. Action coulmn should contain button named "Delete".
+
+4. Once user clicks on Delete button, system should show confirmation popup with message " Are you sure, you want to delete it
+A. YES 
+B. No
+
+5. When user clicks on "Yes", selected document should get deleted successfully and system should generate message in toaster as "Document deleted successfully"
+
+6. If user clicks on "No", confirmation popup should be closed with no action perfomed.
+
+7. User should also have option to select multiple or all documents at time and delete it.
+
+8. To select the documents from list, there should be checkbox at first coulmn of table which user can select multiple rows(documents)
+
+9. Once the documents is deleted successfully, current document list should updated.
