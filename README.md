@@ -1,3 +1,3 @@
-# CODE-RED
+# Document Management Program
 
-Virtual company in Agile Programming class
+This is proposed project from SigmaPro
