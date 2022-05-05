@@ -1,0 +1,33 @@
+# It describe steps via natural language with program language strcuture
+# two user stories about notification all are here
+
+------------
+#user story 1
+
+I want to be notified when someone update one of my document or report one 
+So i know what happen
+
+-By email
+-On the notification page
+-------------
+
+A registered user after login, user will turn to main menu. The user can choose any accessible documents (here references to documents those author is someone else), and make any update or report it. After the update or report, all operation details will be recorded to the datastore, a log will generate at the same time.
+For notification function, the author will receive the notification by email and in author’s notification page, when the update is made. The notification work details are as follows:
+someone updates or report other’s document trigger the condition such that the notification will work;
+the notification system receive the details, and know who update or report whose which document;
+then the notification system will check the datastore, and find the user account who update or reported the document, the author and author’s email of updated or reported document;
+then the notification system will send notification via notification page to the author according to the found author account and send a notification email to the author as well;
+and the notification details will tell the author who update the updated document or who reported the reported document.
+The notification details will not be recorded in system log, but it will generate one line simple log like “author (CONCRETE USERNAME) has been notified due to whose (CONCRETE USERNAME) update (or report) document ‘document title’”
+
+-------------
+I want to notifies someone if i add his documents or saw a mistakes inside
+-------------
+
+A registered user after login, user will turn to main menu. The user can find other users’ public document by the system (ignore how to find here), and add it to the user’s own favorite list. And the user can also make a notification to the author, if the user find there is any errors in the public document. Namely, there are two kinds of notifications.
+For notification function, the author will receive the notification by email and in author’s notification page as before. The notification work details are as follows:
+the notification system receives the details, and know who add whose which document to favorite list or who report whose which public document directly;
+then the notification system will check the datastore, and find the user account who add and the user account and email of author and involved document;
+then the notification system will send notification via notification page to the author according to the found author account and send a notification email to the author as well;
+and the notification details will tell the author who add his/her certain document to favorite list or who reported which document.
+The notification details will not be recorded in system log as well, but it will generate one line simple log like “author (CONCRETE USERNAME) has been notified due to whose (CONCRETE USERNAME) add (or report) document ‘document title’ (to its favorite list)”
