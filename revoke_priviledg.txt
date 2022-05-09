@@ -1,0 +1,12 @@
+#as a document's submitter 
+#I can revoke the access priviledge of someone who can access my document now at anytime
+
+after login, a user may have some documents which can be accessed by other users
+the submitter can revoke following such steps:
+the submitter can select one access record in his/her document control list
+if the submitter clicks to revoke the priviledge, the system receives the operation and read the details about this record in datastore
+and system knows whose access priviledge of which document are revoking by the submitter
+privilege system need to modify the document access privildge
+and the revoke operation will lead to the accessor cannot access the document any more
+one log will generate according the operation, including submitter username, involving document and accessor
+other parts like notification about this change will not be discuss here
