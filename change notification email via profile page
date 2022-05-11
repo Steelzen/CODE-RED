@@ -1,0 +1,23 @@
+1. A User should have privilege to update his/her email for notification. 
+
+2. When a user logged into his system,  from profile page there should be option to update the email for the notification
+
+3. When user clicks on update email, there he should enter the new email and confirm the same.
+
+4. There should be text field which has label as 'New Email'
+
+5. At the same time system should show the old email on screen.
+
+6. When user confirms the email, at the same time email will be sent to the existing email with one link.
+
+7. There should be validations for valid email, if entered new email doesn't exist then same message should get on screen.
+
+8. Once user clicks on the link and the confirm the same then email change request should be initiated. 
+
+9. Link should not be accessible after few period of time, it should get expired after an hour.
+
+10. Once the user requests for the email change, the admin can see all the requests from the users for email changes.
+
+11. If admin reject the request of email change, user should receive  the same notification on screen by toaster and via email.
+
+12. If admin approve the request, then user should get notified about approval.
