@@ -1,0 +1,9 @@
+Report a document.
+
+To code this, we will add a property in the database for the object "file" that would be "reported". It would be a boolean that is true if the document has been reported. 
+We will add a button in the page of each file that will allow users to report the document.
+By clicking on it, it will set the "reported" property in the database as true and send a message to the owner.
+The user who report will be able to specify which part of the document has a problem.
+If the "reported" property is true, there will be a message or a picture in the file page to indicate to every user that this document might contain a mistake.
+The owner will be able to see who reported the document, and what part of it.
+When he thinks that the problem is fixed, he will click on a button (that only him will be able to see on the page) that will set the "reported" property to false.
