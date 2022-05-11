@@ -1,0 +1,28 @@
+<!-- Throuh this mechanism user can search data in database. 
+User can choose one of two searching options. By username and document content -->
+
+      <section class="search-sec" id="search-pad">
+        <form
+          action="/search_by"
+          method="post"
+          id="search"
+        >
+          <input
+            type="text"
+            name="search-by-option"
+            class="form-control search-slt liner-search"
+            id="searchText"
+            placeholder="Enter Search"
+          />
+          <select
+            name="search-by"
+            id="search-by-profile"
+            class="form-control search-slt liner-search"
+          >
+            <option value="username">Username</option>
+            <option value="content">Document</option>
+          </select>
+
+          <button type="submit" class="btn btn-danger wrn-btn">Search</button>
+        </form>
+      </section>
