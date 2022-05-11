@@ -14,11 +14,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link
-      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-      rel="stylesheet"
-      id="bootstrap-css"
-    />
+    
     <!-- font awesome -->
     <link
       rel="stylesheet"
@@ -245,7 +241,6 @@
               <p class="message" id="message_editUser"></p>
 
               <li class="border-top my-3"></li>
-              {% endif %} {% endfor %}
               <!-- endif for profile owner -->
             </ul>
 
@@ -287,12 +282,10 @@
               </div>
               <div class="col-10 mb-1 small">{{ i['content'] }}</div>
             </a>
+            {% endfor %}
           </div>
         </div>
       </main>
-      {% elif error_message %}
-      <p>Error Message: {{ error_message }}</p>
-      {% endif %}
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
