@@ -1,0 +1,23 @@
+We need an html page with a form linked with the database
+
+All the information gather from the form (only a login and a password) will be pass with the method POST
+
+After that, in the back end, a function will checked if the login and password correspond to one user of the User database
+If yes, it will redirect to the site with a session variable active with all the information of the curret user of the site
+
+If not, i will redirect to the login page with a message that the user enter wrong information
+
+We will also made a, forgot password feature, the user will have to enter a email link to his count to receive a mail with a new password that he will need to change.
+
+
+Here is the model of the User in the datebase
+
+id : int (primary key)
+FirstName : varchar
+LasteName : varchar
+Birth : date
+Email : varchar
+Password : varchar
+Document : list of id (foreign key)
+State : varchar
+

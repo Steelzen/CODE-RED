@@ -1,0 +1,5 @@
+When i submit a document, i have a button where i can add people to the document.
+
+Other user will be added to the list of user of the document whitch is a list of user
+
+User add to this list can see the document, edit it, delete it and even add other person to it

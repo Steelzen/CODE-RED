@@ -1,0 +1,6 @@
+I the administatration page, i can click on edit and it redirect to a page where i can see all te information of the user
+
+I can see all the information i the database, and i can also edit anyone of them
+
+I can edit them with a form, in the back end when the form is send i edit the database in the backend
+

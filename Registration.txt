@@ -1,0 +1,13 @@
+The registration of the application will be done in different part, here is the part for the user
+
+The HTML page will have a form with different text and date input
+
+The user will acces a form where he could register, for the registration he will need to fill:
+
+First and last name, his date of birth, Email address, signature, password and the password confirmation
+
+There is some restriction on the password, he will need to be at least 8 characters long, with on capital letter and one special character
+
+All those informations will past with a Post to the back end where a function will add all the information to the database
+Also, in the back end we will assure that the account isn't already here, if he is nothing will happen
+After all those instruction, the account is not finalize, an administrator need to validate it
