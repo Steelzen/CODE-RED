@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="{{ url_for('static', filename='jquery-3.6.0.min.js') }}"></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <title>Liner</title>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Bootstrap sidebar templates -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+      <symbol id="bootstrap" viewBox="0 0 118 94">
+        <title>Bootstrap</title>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"
+        ></path>
+      </symbol>
+    </svg>
+
+    <div id="app-title">
+      <a href="/" id="linerTitle">
+        <h1>Document Control System </h1>
+      </a>
+
+      <section class="search-sec" id="search-pad" hidden="true">
+        <form
+          action="/search_by"
+          method="post"
+          id="search"
+          novalidate="novalidate"
+          onsubmit="validate()"
+        >
+          <input
+            type="text"
+            name="search-by-option"
+            class="form-control search-slt liner-search"
+            id="searchText"
+            placeholder="Enter Search"
+          />
+          <select
+            name="search-by"
+            id="search-by-profile"
+            class="form-control search-slt liner-search"
+          >
+            <option value="username">Username</option>
+            <option value="content">Content</option>
+          </select>
+
+          <button type="submit" class="btn btn-danger wrn-btn">Search</button>
+        </form>
+      </section>
+
+      <a href="/">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          height="30"
+          fill="currentColor"
+          class="bi bi-house-door"
+          id="home"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"
+          />
+        </svg>
+      </a>
+      <button id="sign-out" hidden="true" class="link-dark rounded">
+        Sign out
+      </button>
+    </div>
+
+    <div id="firebase-auth-container"></div>
+
+    <div id="login-info" hidden="true">
+      <main>
+        <div
+          class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white"
+          id="profileWrap"
+          style="width: 40em"
+        >
+          <div class="list-group list-group-flush scrollarea">
+            <ul class="list-unstyled ps-0" id="profileList">
+              <li class="mb-1" id="mb-1-profile">
+                <div class="account-info">
+                  <h4>
+                    <a href="/{{ i['username'] }}">{{ i['username'] }}</a>
+                  </h4>
+                  Name: {{ i['name'] }}<br />
+                  Email: {{ i['email'] }} <br />
+                  Profile: {{ i['profile'] }} <br />
+                </div>
+              </li>
+              <div class="follow-btn">
+                {% if user_info['username'] != i['username'] %} {% if
+                user_info['username'] in i['follower'] %}
+                <small class="text-muted"
+                  ><form
+                    class="active-task-form"
+                    id="btn-unfollow"
+                    action="/unfollow/{{i['username']}}"
+                    method="post"
+                  >
+                    <button type="submit" class="general-btn following-btn">
+                      Unfollow
+                    </button>
+                  </form></small
+                >
+                <small class="text-muted">
+                  <form
+                    class="active-task-form"
+                    id="btn-follow"
+                    action="/follow/{{i['username']}}"
+                    method="post"
+                  >
+                    <button type="submit" class="general-btn following-btn">
+                      Follow
+                    </button>
+                  </form></small
+                >
+
+              </div>
+
+              <li class="border-top my-3"></li>
+              
+              <li class="mb-1">
+                <button
+                  class="btn btn-toggle align-items-center rounded collapsed"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#orders-collapse"
+                  aria-expanded="false"
+                >
+                  Edit user info
+                </button>
+                <div class="collapse" id="orders-collapse">
+                  <ul
+                    class="btn-toggle-nav list-unstyled fw-normal pb-1 small"
+                    id="profile-edit-nav"
+                  >
+                    <li>
+                      <div id="edit-user-name">
+                        <form action="/edit_user_name" method="post">
+                          <label for="name" class="edit-user-info form-label">
+                            Name:
+                          </label>
+                          <input
+                            type="text"
+                            name="name"
+                            class="edit-user-info"
+                            id="editNameInProfile"
+                            maxlength="280"
+                          />
+                          <button
+                            type="submit"
+                            class="edit-user-info general-btn link-dark rounded"
+                          >
+                            Submit
+                          </button>
+                        </form>
+                        <br />
+                      </div>
+                    </li>
+                    <li>
+                      <div id="edit-user-profile">
+                        <form action="/edit_user_profile" method="post">
+                          <label
+                            for="profile"
+                            class="edit-user-info form-label"
+                          >
+                            Profile:
+                            <textarea
+                              name="profile"
+                              id="edit-user-profile"
+                              rows="5"
+                              cols="39"
+                              maxlength="280"
+                            ></textarea>
+                          </label>
+                          <button
+                            type="submit"
+                            class="edit-user-info general-btn link-dark rounded"
+                          >
+                            Submit
+                          </button>
+                        </form>
+                        <br />
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <p class="message" id="message_editUser"></p>
+
+              <li class="border-top my-3"></li>
+              {% endif %} {% endfor %}
+              <!-- endif for profile owner -->
+            </ul>
+
+            {% for i in profile %}
+            <a
+              class="list-group list-group-flush border-bottom p-3 link-dark lh-tight"
+            >
+              <div class="d-flex w-100 align-items-center">
+                <button
+                  class="non-style-button"
+                  onclick="document.location=`/{{ i['owner'] }}`"
+                >
+                  <strong class="mb-1"> {{ i['owner'] }} </strong>
+                </button>
+                <small class="text-muted">
+                  <form
+                    class="edit-button"
+                    id="edit-profile-button_{{ i['id'] }}"
+                    action="/edit_profile_popup/{{ i['id'] }}"
+                    method="post"
+                  >
+                    <button type="submit" class="general-btn link-dark rounded">
+                      Edit
+                    </button>
+                  </form>
+                </small>
+                <small class="text-muted"
+                  ><form
+                    class="delete-button"
+                    id="delete_profile_button_{{ i['id'] }}"
+                    action="/delete_profile/{{ i['id'] }}"
+                    method="post"
+                  >
+                    <button type="submit" class="general-btn link-dark rounded">
+                      Delete
+                    </button>
+                  </form></small
+                >
+              </div>
+              <div class="col-10 mb-1 small">{{ i['content'] }}</div>
+            </a>
+          </div>
+        </div>
+      </main>
+      {% elif error_message %}
+      <p>Error Message: {{ error_message }}</p>
+      {% endif %}
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{{ url_for('static', filename='sidebars.js') }}"></script>
+  </body>
+</html>
