@@ -111,35 +111,6 @@
                   Profile: {{ i['profile'] }} <br />
                 </div>
               </li>
-              <div class="follow-btn">
-                {% if user_info['username'] != i['username'] %} {% if
-                user_info['username'] in i['follower'] %}
-                <small class="text-muted"
-                  ><form
-                    class="active-task-form"
-                    id="btn-unfollow"
-                    action="/unfollow/{{i['username']}}"
-                    method="post"
-                  >
-                    <button type="submit" class="general-btn following-btn">
-                      Unfollow
-                    </button>
-                  </form></small
-                >
-                <small class="text-muted">
-                  <form
-                    class="active-task-form"
-                    id="btn-follow"
-                    action="/follow/{{i['username']}}"
-                    method="post"
-                  >
-                    <button type="submit" class="general-btn following-btn">
-                      Follow
-                    </button>
-                  </form></small
-                >
-
-              </div>
 
               <li class="border-top my-3"></li>
               
