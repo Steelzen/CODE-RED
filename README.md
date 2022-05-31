@@ -1,5 +1,7 @@
 # Document Control Program
 
+This Repository is to practice Agile Software Development procedure.
+
 This is proposed project from SigmaPro
 
 - Front-end UI description:  
